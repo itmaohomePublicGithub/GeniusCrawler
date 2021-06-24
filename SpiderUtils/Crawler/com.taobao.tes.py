@@ -1,22 +1,27 @@
 #coding:utf-8
 '''
-SpiderUtils  ---> com.taobao.tes.py
+SpiderUtils  ---> TaoBaoModule.py
 date：2021-06-23
 Anchor：Levon
 '''
-import aiohttp
 
 from SpiderUtils.Manger.SpiderManger import SpiderManager
+from SpiderUtils.Module.TaoBaoModule import ModuleManger
 
-def dv(dv):
-    print(dv)
+class Tao():
+    def __init__(self):
+        self.SpiderManager = SpiderManager(SpiderName="com.taobao.tes")
+        self.ModuleManager = ModuleManger(self.SpiderManager)
 
-def callback(result):
-    for i in result:
-        print(i)
-        yield
-b = SpiderManager(SpiderName="com.taobao.tes")
-b.SetHandlerData(dv)
-for i in range(2):
-    b.FetchForword('https://www.taobao.com')
-b.Fetch(callback)
+    def main(self):
+        self.SpiderManager.SetHandlerData(self.ModuleManager.SaveData)
+        for i in range(50):
+            self.SpiderManager.FetchForword("https://www.taobao.com")
+        self.SpiderManager.Fetch(self.Callback)
+
+    def Callback(self,result):
+        for item in result:
+            yield item
+
+b = Tao()
+b.main()

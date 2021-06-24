@@ -1,6 +1,6 @@
 #coding:utf-8
 '''
-SpiderUtils  ---> com.taobao.tes.py
+SpiderUtils  ---> TaoBaoModule.py
 date：2021-06-24
 Anchor：Levon
 '''
@@ -70,9 +70,6 @@ class GCEvent(EventCallback):
         self.handler_async(fn,callback,args)
     def handler_received(self,fn):
         pass
-
-
-
 
 class Threads():
     def __init__(self):

@@ -1,6 +1,6 @@
 #coding:utf-8
 '''
-SpiderUtils  ---> com.taobao.tes.py
+SpiderUtils  ---> TaoBaoModule.py
 date：2021-06-23
 Anchor：Levon
 '''

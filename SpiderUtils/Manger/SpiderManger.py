@@ -4,9 +4,8 @@ SpiderUtils  ---> SpiderManager.py
 date：2021-06-23
 Anchor：Levon
 '''
-import random
+
 import sys
-import time
 from LoggerUtils.Logger import Logger
 from DataBaseUtils.RedisDB import RedisDB
 from WebRequestUtils.WebRequest import WebRequest
@@ -45,8 +44,6 @@ class SpiderManager():
         :return: 返回一条记录或为None
         """
         self.Redis.lpop(clo_name)
-    def SaveData(self,col,data):
-        pass
     def SyncStatus(self):
         return self.TaskStatus.GetStatus()
     def FetchForword(self,url,method='GET',headers=None,data=None):

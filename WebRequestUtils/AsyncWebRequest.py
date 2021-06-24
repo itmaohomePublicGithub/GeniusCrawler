@@ -24,12 +24,12 @@ class AsyncWebRequest():
             if method.upper() == "POST":
                 async with aiohttp.ClientSession()as session:
                     async with session.post(url=url,headers=headers,data=data,**kwargs) as response:
-                        self.logger.info(f"【AsyncFetchStatus】：{response.status}")
+                        # self.logger.info(f"【AsyncFetchStatus】：{response.status}")
                         return await response.text()
             else:
                 async with aiohttp.ClientSession()as session:
                     async with session.get(url=url,headers=headers,**kwargs) as response:
-                        self.logger.info(f"【AsyncFetchStatus】：{response.status}")
+                        # self.logger.info(f"【AsyncFetchStatus】：{response.status}")
                         return await response.text()
         except BaseException as e:
             self.statusObj.status = Status.Failure
@@ -43,12 +43,12 @@ class AsyncWebRequest():
             if method.upper() == "POST":
                 async with aiohttp.ClientSession()as session:
                     async with session.post(url=url,headers=headers,data=data,**kwargs) as response:
-                        self.logger.info(f"【AsyncFetchStatus】：{response.status}")
+                        # self.logger.info(f"【AsyncFetchStatus】：{response.status}")
                         return await response.json()
             else:
                 async with aiohttp.ClientSession()as session:
                     async with session.get(url=url,headers=headers,**kwargs) as response:
-                        self.logger.info(f"【AsyncFetchStatus】：{response.status}")
+                        # self.logger.info(f"【AsyncFetchStatus】：{response.status}")
                         return await response.json()
         except BaseException as e:
             self.statusObj.status = Status.Failure
