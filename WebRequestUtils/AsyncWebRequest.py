@@ -12,7 +12,7 @@ import aiohttp
 
 
 class AsyncWebRequest():
-    def __init__(self,StatusObj,Logger,timeout=30,):
+    def __init__(self,StatusObj,Logger,timeout=30):
         self.statusObj = StatusObj
         self.logger = Logger
         self.timeout = timeout
